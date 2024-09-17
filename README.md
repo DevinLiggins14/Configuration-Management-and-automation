@@ -7,7 +7,7 @@
 
 <h2>Languages and Utilities Used</h2>
 
-Bash, VSCode, Ansible, Python
+Bash, Ansible, Python
 
 <h2>Environments Used </h2>
 
