@@ -82,6 +82,14 @@ Make sure you have 2 vms and designate the control node by running dnf install e
  <br/> Now edit the yml playbook to include everything mentioned to test on the localhost again prior to configuring a new server <br/> 
 <br/>
 <img src="https://github.com/user-attachments/assets/dd3089cc-e21e-4555-ac75-00ebdfccf7bc"/>
+ <br/>Since Nginx cannot process PHP code on its own, it is essential to configure it correctly to serve PHP files. Instead, it depends on an external processor to manage PHP requests, like PHP-FPM (FastCGI Process Manager). The configuration makes sure that when a request is made for a PHP file, PHP-FPM receives it correctly, processes the PHP code, and then sends the result back to Nginx. 
+ 
+ 
+ Since Nginx was not previously configured properly, it would either not be able to handle PHP files at all or would not be able to communicate with PHP-FPM, which would result in errors like "502 Bad Gateway" or "Permission Denied." 
+
+The previous error occurred because of a misconfigured Nginx server that prevented it from connecting to PHP-FPM on the designated port. Incorrect socket or port configurations, improper permissions, or incorrect FastCGI parameter settings are common examples of this misconfiguration, which can hinder Nginx's ability to process and serve PHP content. It is imperative that these parameters are configured accurately in order for the server to operate properly and serve dynamic PHP content without hiccups. 
+ 
+ <br/>
  <br/> create the revised nginx template <br/>
  <img src="https://github.com/user-attachments/assets/74fb58f6-f820-42ee-a43c-792e3ee77c20"/>
    <br/>
