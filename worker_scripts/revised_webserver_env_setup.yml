@@ -1,0 +1,85 @@
+---
+- name: Set up Nginx and PHP-FPM on CentOS 8
+  hosts: all
+  become: yes
+  tasks:
+
+    - name: Install EPEL repository
+      dnf:
+        name: epel-release
+        state: present
+
+    - name: Install Nginx and PHP-FPM
+      dnf:
+        name:
+          - nginx
+          - php
+          - php-fpm
+          - php-cli
+          - php-mysqlnd
+        state: present
+
+    - name: Start and enable Nginx service
+      systemd:
+        name: nginx
+        state: started
+        enabled: yes
+
+    - name: Start and enable PHP-FPM service
+      systemd:
+        name: php-fpm
+        state: started
+        enabled: yes
+
+    - name: Configure PHP-FPM
+      lineinfile:
+        path: /etc/php-fpm.d/www.conf
+        regexp: '^listen ='
+        line: 'listen = /run/php-fpm/www.sock'
+        create: yes
+      notify:
+        - Restart PHP-FPM
+
+    - name: Configure Nginx to work with PHP-FPM
+      template:
+        src: nginx.conf.j2
+        dest: /etc/nginx/nginx.conf
+      notify:
+        - Restart Nginx
+
+    - name: Deploy PHP info page
+      copy:
+        content: |
+          <?php
+          phpinfo();
+          ?>
+        dest: /usr/share/nginx/html/info.php
+        mode: '0644'
+
+    - name: Open firewall port 80
+      firewalld:
+        port: 80/tcp
+        permanent: yes
+        state: enabled
+      notify:
+        - Reload firewall
+
+    - name: Ensure SELinux policies for PHP-FPM are applied
+      command: semanage port -a -t http_port_t -p tcp 9000
+      ignore_errors: yes
+
+  handlers:
+    - name: Restart Nginx
+      systemd:
+        name: nginx
+        state: restarted
+
+    - name: Restart PHP-FPM
+      systemd:
+        name: php-fpm
+        state: restarted
+
+    - name: Reload firewall
+      firewalld:
+        immediate: yes
+        state: reloaded
