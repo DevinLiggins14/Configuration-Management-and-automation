@@ -16,8 +16,7 @@ Bash, VSCode, Ansible, Python
 
 <h2>Project walk-through:</h2>
 <p align="center">
-Make sure you have 2 vms and designate the control node by running dnf install epel-release ansible -y   : <br/>
-<img src="https://github.com/user-attachments/assets/f3741360-8c1b-4bbf-b836-05987406ea32"/>
+Make sure you have 2 vms and designate the control node by running dnf install epel-release ansible -y  <br/>
 <br /> 
 <br /> generate an ssh key by running ssh-keygen and then ssh-copy-id [other machine ip addr] to make the other host known <br />  
 <br />
@@ -108,130 +107,29 @@ The previous error occurred because of a misconfigured Nginx server that prevent
    <br/> Uninstall packages and services if necessary to clean up and run playbook again: <br/>
  <img src="https://github.com/user-attachments/assets/240d1349-b252-4052-95e8-fe6049d9ea14"/>
    <br/>
-   <br/><br/> <br/> 
-<br/>
-<img src=""/>
+   <h2>Python backup script</h2>
+   <br/> Make sure python is installed by running CentOS dnf install python3 and confirm with python3 --version <br/>
+   <img src="https://github.com/user-attachments/assets/91883576-4050-47fc-8c67-9e1401a1dc32"/>
+   <br/>  
+<br/>Now create the backup script and add the python program within. Then make it executable <br/>
+<img src="https://github.com/user-attachments/assets/d8d37673-b287-4e0b-8ccd-64580a6b9023"/>
+<br/> Ensure the backup source and destination are set <br/>
+<img src="https://github.com/user-attachments/assets/4a20daaa-bf01-4837-b07b-311d92151919"/>
+<br/> Make sure the script has the .py extension to it can be recognized as python <br/>
+<img src="https://github.com/user-attachments/assets/315f7970-d710-4c7c-8a24-3c99bd9a2aa2"/>
    <br/>
-   <br/> <br/> 
+   <br/> If this error occurs make sure the source path within the file is valid <br/>
+   <img src="https://github.com/user-attachments/assets/61218627-6390-4fa3-9972-e5d6e1aa96b8"/>
    <br/>
-   <br/><br/> <br/> 
-<br/>
-<img src=""/>
+   <br/> Error fixed  <br/> 
+   <img src= "https://github.com/user-attachments/assets/94815c11-35e3-44d3-a09d-3bc51da66f41"/> 
+   <br/> 
+<br/> Now execute the script: <br/>
+<img src="https://github.com/user-attachments/assets/6c53892a-1309-4ece-a6cb-f23ba24f41ec"/>
    <br/>
-   <br/> <br/> 
-   <br/>
-   <br/><br/> <br/> 
-<br/>
-<img src=""/>
-   <br/>
-   <br/> <br/> 
-   <br/>
-   <br/><br/> <br/> 
-<br/>
-<img src=""/>
-   <br/>
-   <br/> <br/> 
-   <br/>
-   <br/><br/> <br/> 
-<br/>
-<img src=""/>
-   <br/>
-   <br/> <br/> 
-   <br/>
-   <br/><br/> <br/> 
-<br/>
-<img src=""/>
-   <br/>
-   <br/> <br/> 
-   <br/>
-   <br/><br/> <br/> 
-<br/>
-<img src=""/>
-   <br/>
-   <br/> <br/> 
-   <br/>
-   <br/><br/> <br/> 
-<br/>
-<img src=""/>
-   <br/>
-   <br/> <br/> 
-   <br/>
-   <br/><br/> <br/> 
-<br/>
-<img src=""/>
-   <br/>
-   <br/> <br/> 
-   <br/>
-   <br/><br/> <br/> 
-<br/>
-<img src=""/>
-   <br/>
-   <br/> <br/> 
-   <br/>
-   <br/><br/> <br/> 
-<br/>
-<img src=""/>
-   <br/>
-   <br/> <br/> 
-   <br/>
-   <br/><br/> <br/> 
-<br/>
-<img src=""/>
-   <br/>
-   <br/> <br/> 
-   <br/>
-   <br/><br/> <br/> 
-<br/>
-<img src=""/>
-   <br/>
-   <br/> <br/> 
-   <br/>
-   <br/><br/> <br/> 
-<br/>
-<img src=""/>
-   <br/>
-   <br/> <br/> 
-   <br/>
-   <br/><br/> <br/> 
-<br/>
-<img src=""/>
-   <br/>
-   <br/> <br/> 
-   <br/>
-   <br/><br/> <br/> 
-<br/>
-<img src=""/>
-   <br/>
-   <br/> <br/> 
-   <br/>
-   <br/><br/> <br/> 
-<br/>
-<img src=""/>
-   <br/>
-   <br/> <br/> 
-   <br/>
-   <br/><br/> <br/> 
-<br/>
-<img src=""/>
-   <br/>
-   <br/> <br/> 
-   <br/>
-   <br/><br/> <br/> 
-<br/>
-<img src=""/>
-   <br/>
-   <br/> <br/> 
-   <br/>
-   <br/><br/> <br/> 
-<br/>
-<img src=""/>
-   <br/>
-   <br/> <br/> 
-   <br/>
-   <br/><br/> <br/> 
-<br/>
-<img src=""/>
-   <br/>
-   <br/> <br/> 
-   <br/>
-   <br/>
+   <br/> Now confirm creating of backup dir and extract tarball <br/> 
+   <img src="https://github.com/user-attachments/assets/88fde418-4fef-4b04-9e69-c3e4cd64ab71"/>
+<img src="![image](https://github.com/user-attachments/assets/13faa71f-60cd-4f51-9964-af8f79ead6c8)
+"/>
+<img src="https://github.com/user-attachments/assets/00167be6-8d2b-45db-9c37-1d0bd621316e"/>
+   <br/>Success! <br/>
